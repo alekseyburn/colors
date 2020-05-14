@@ -1,0 +1,20 @@
+//- Все примеси в этом файле должны начинаться c имени блока (page-footer)
+
+mixin page-footer(classes)
+
+  //- Принимает:
+  //-   classes  {string} - список классов
+  //- Вызов:
+        +page-footer()
+          p «Подвал»
+  -
+    //- список классов
+    let allClasses = '';
+    if (typeof (classes) !== 'undefined' && classes) {
+      for (let item of classes.split(',')) {
+        allClasses = allClasses + item.trim();
+      }
+    }
+
+  footer(class=`${allClasses.length > 0 ?`${allClasses} `: `` }page-footer`)&attributes(attributes)
+    block

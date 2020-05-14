@@ -1,0 +1,20 @@
+//- Все примеси в этом файле должны начинаться c имени блока (page-header)
+
+mixin page-header(classes)
+
+  //- Принимает:
+  //-   classes  {string} - список классов
+  //- Вызов:
+        +page-header()
+          p «Шапка»
+  -
+    //- список классов
+    let allClasses = '';
+    if (typeof (classes) !== 'undefined' && classes) {
+      for (let item of classes.split(',')) {
+        allClasses = allClasses + item.trim();
+      }
+    }
+
+  header(class=`${allClasses.length > 0 ?`${allClasses} `: `` }page-header`)&attributes(attributes)
+    block

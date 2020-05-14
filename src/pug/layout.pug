@@ -1,0 +1,33 @@
+//- Стандартный шаблон
+
+include mixins.pug
+
+doctype html
+html(class='no-js', lang='ru')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='format-detection', content='telephone=no')
+    meta(name='format-detection', content='date=no')
+    meta(name='format-detection', content='address=no')
+    meta(name='format-detection', content='email=no')
+    meta(content='notranslate', name='google')
+    meta(name='robots', content='index,follow')
+    link(rel='icon', href='favicon.svg')
+
+    block meta
+
+    block head
+      link(rel='preload', href='css/style.css', as='style')
+      link(rel='stylesheet', href='css/style.css')
+      script(src='js/bundle.js', defer)
+
+  body.webp
+    +page-header()
+      block header
+    main.page-main
+      block content
+    +page-footer()
+      block footer
+
+    block page-bottom
