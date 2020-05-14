@@ -1,8 +1,8 @@
 extends ../pug/layout.pug
 
 block meta
-  title Главная
-  meta(name='description', content='')
+  title Colors
+  meta(name='description', content='color palette')
 
 //- block append head
 //-   link(rel='stylesheet', href='css/some.css')
@@ -10,15 +10,102 @@ block meta
     link(rel='preload', href='fonts/Poppins-Regular.woff2', as='font', crossorigin='anonymous')
 
 block header
-  p.nothing test
+  h1.visually-hidden Color palette
 
 block content
-  h1 Заголовок с каким-то эффектом
-  p Содержимое. #[a(href='blocks-demo.html') Библиотека блоков].
+  .colors
+    .color
+      h2 Hex
+      .controls
+        button.adjust adjust
+        button.lock lock
+      .sliders
+        button.close-adjustment X
+        span Hue
+        input(type='range', min='0', max='360', step='1', name='hue', class='hue-input', data-hue='0')
+        span Brightness
+        input(type='range', min='0', max='1', step='0.01', name='brightness', class='bright-input', data-bright='0')
+        span Saturation
+        input(type='range', min='0', max='1', step='0.01', name='saturation', class='sat-input', data-sat='0')
+    .color
+      h2 Hex
+      .controls
+        button.adjust adjust
+        button.lock lock
+      .sliders
+        button.close-adjustment X
+        span Hue
+        input(type='range', min='0', max='360', step='1', name='hue', class='hue-input', data-hue='1')
+        span Brightness
+        input(type='range', min='0', max='1', step='0.01', name='brightness', class='bright-input', data-bright='1')
+        span Saturation
+        input(type='range', min='0', max='1', step='0.01', name='saturation', class='sat-input', data-sat='1')
+    .color
+      h2 Hex
+      .controls
+        button.adjust adjust
+        button.lock lock
+      .sliders
+        button.close-adjustment X
+        span Hue
+        input(type='range', min='0', max='360', step='1', name='hue', class='hue-input', data-hue='2')
+        span Brightness
+        input(type='range', min='0', max='1', step='0.01', name='brightness', class='bright-input', data-bright='2')
+        span Saturation
+        input(type='range', min='0', max='1', step='0.01', name='saturation', class='sat-input', data-sat='2')
+    .color
+      h2 Hex
+      .controls
+        button.adjust adjust
+        button.lock lock
+      .sliders
+        button.close-adjustment X
+        span Hue
+        input(type='range', min='0', max='360', step='1', name='hue', class='hue-input', data-hue='3')
+        span Brightness
+        input(type='range', min='0', max='1', step='0.01', name='brightness', class='bright-input', data-bright='3')
+        span Saturation
+        input(type='range', min='0', max='1', step='0.01', name='saturation', class='sat-input', data-sat='3')
+    .color
+      h2 Hex
+      .controls
+        button.adjust adjust
+        button.lock lock
+      .sliders
+        button.close-adjustment X
+        span Hue
+        input(type='range', min='0', max='360', step='1', name='hue', class='hue-input', data-hue='4')
+        span Brightness
+        input(type='range', min='0', max='1', step='0.01', name='brightness', class='bright-input', data-bright='4')
+        span Saturation
+        input(type='range', min='0', max='1', step='0.01', name='saturation', class='sat-input', data-sat='4')
+  .panel
+    .library-panel
+      button.library library
+      p Library
+    .generate-panel
+      button.generate generate
+      p Generate
+    .save-panel
+      button.save save
+      p Save
+  .copy-container
+    .copy-popup
+      h3.Copied to clipboard!
+      h4 &#128077;
+  .save-container
+    .save-popup
+      button.close-save X
+      h4 Give a name to your pallete
+      input.save-name(type='text', maxlength='35')
+      button.submit-save(type='submit') Save
+  .library-container
+    .library-popup
+      button.closa-library X
+      h4 Pick your palette
 
 block footer
-  p «Подвал»
-  p Контактный телефон: #[a(href='tel:+70000000000') +7 000 000 00 00]
+
 
 //- block append page-bottom
 //-   script(src='js/some.js')
