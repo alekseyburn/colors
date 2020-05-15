@@ -1,15 +1,17 @@
 /* eslint-disable no-undef */
 const colorDivs = document.querySelectorAll('.color');
-// const generateBtn = document.querySelector('.generate');
+const generateBtn = document.querySelector('.generate');
 const sliders = document.querySelectorAll('input[type="range"]');
 const currentHexes = document.querySelectorAll('.color h2');
 const popup = document.querySelector('.copy-container');
 const adjustButton = document.querySelectorAll('.adjust');
+const lockButton = document.querySelectorAll('.lock');
 const closeAdjustments = document.querySelectorAll('.close-adjustment');
 const sliderContainers = document.querySelectorAll('.sliders');
 let initialColors;
 
 //Add event listeners
+generateBtn.addEventListener('click', randomColors);
 sliders.forEach(slider => {
   slider.addEventListener('input', hslControls);
 });
@@ -38,6 +40,11 @@ closeAdjustments.forEach((button, index) => {
     closeAdjustmentPanel(index);
   });
 });
+lockButton.forEach((button, index) => {
+  button.addEventListener('click', e => {
+    lockLayer(e, index);
+  });
+});
 
 //Color generator
 function generateHex() {
@@ -50,7 +57,12 @@ function randomColors() {
     const hexText = div.children[0];
     const randomColor = generateHex();
     //Add color to the array
-    initialColors.push(randomColor.hex());
+    if(div.classList.contains('locked')) {
+      initialColors.push(hexText.innerText);
+      return;
+    } else {
+      initialColors.push(chroma(randomColor).hex());
+    }
 
     //Add the color to the bg
     div.style.backgroundColor = randomColor;
@@ -68,6 +80,12 @@ function randomColors() {
   });
   //Reset inputs
   resetInputs();
+  //Check for button contrast
+  adjustButton.forEach((button, index) => {
+    checkTextContrast(initialColors[index], button);
+    checkTextContrast(initialColors[index], lockButton[index]);
+  })
+
 }
 
 function checkTextContrast(color, text) {
@@ -164,4 +182,15 @@ function closeAdjustmentPanel(index) {
   sliderContainers[index].classList.remove('active');
 }
 
+function lockLayer(e, index) {
+  const lockButton = e.target;
+  const activeBg = colorDivs[index];
+  activeBg.classList.toggle('locked')
+
+  if (lockButton.innerText === 'lock') {
+    e.target.innerText = 'unlock';
+  } else {
+    e.target.innerText = 'lock';
+  }
+}
 randomColors();
