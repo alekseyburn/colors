@@ -8,8 +8,8 @@ mixin field-range(props)
   //-     side: ''          {string} - место расположения текста с названием
                                       (перед инпутом - up, после инпута - down)
   //-     classes: ''       {string} - классы блока
-  //-     attrs:            {object} - любые атрибуты для input
   //-       mod:            {string} - модификатор
+  //-     attrs:            {object} - любые атрибуты для input
   //-       min:            {string} - минимальное значение
   //-       max:            {string} - максимальное значение
   //-       step:           {string} - шаг
@@ -18,12 +18,12 @@ mixin field-range(props)
             label: 'Название',
             side: 'up',
             classes: '',
+            mod: 'hue'
             attrs: {
               min: '0',
               max: '360',
               step: '1',
               name: 'hue',
-              mod: 'hue'
             }
           })
 
@@ -39,6 +39,6 @@ mixin field-range(props)
   label(class=`${allClasses.length > 0 ? `${allClasses} ` : ``}field-range`)&attributes(attributes)
     if(typeof (props.label) !== 'undefined' && props.label && props.side === 'up')
       span.field-range__name!= props.label
-    input.field-range__input(class=`field-range__input--${props.attrs.mod}`, type='range')&attributes(props.attrs)
+    input.field-range__input(class=`field-range__input--${props.mod}`, type='range')&attributes(props.attrs)
     if(typeof (props.label) !== 'undefined' && props.label && props.side === 'down')
       span.field-range__name!= props.label

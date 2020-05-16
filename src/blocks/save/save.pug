@@ -1,0 +1,30 @@
+//- Все примеси в этом файле должны начинаться c имени блока (save)
+
+mixin save(classes)
+
+  //- Принимает:
+  //-   classes    {string} - список классов
+  //- Вызов:
+        +save('some-class')
+
+  -
+    // список классов
+    let allClasses = '';
+    if(typeof(classes) !== 'undefined' && classes) {
+      for (let item of classes.split(',')) {
+        allClasses = allClasses + item.trim();
+      }
+    }
+
+  section(class=`${allClasses.length > 0 ? `${allClasses}` : ``}save`)&attributes(attributes)
+    .save__popup
+      +btn('X', 'save__btn')(class='btn--close')
+      h2.save__name Give a name to your palette
+      +field-text({
+        classes: 'save__input',
+        attrs: {
+          name: 'name',
+          'max-length': '35'
+        }
+      })
+      +btn('Save','save__btn')(type='submit')

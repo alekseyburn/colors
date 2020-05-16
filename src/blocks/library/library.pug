@@ -1,0 +1,22 @@
+//- Все примеси в этом файле должны начинаться c имени блока (library)
+
+mixin library(classes)
+
+  //- Принимает:
+  //-   classes    {string} - список классов
+  //- Вызов:
+        +library('some-class')
+
+  -
+    // список классов
+    let allClasses = '';
+    if(typeof(classes) !== 'undefined' && classes) {
+      for (let item of classes.split(',')) {
+        allClasses = allClasses + item.trim();
+      }
+    }
+
+  section(class=`${allClasses.length > 0 ? `${allClasses} ` : ``}library`)&attributes(attributes)
+    .library__popup
+      +btn('X', 'library__btn')(class='btn--close')
+      h2.library__title Pick your palette
