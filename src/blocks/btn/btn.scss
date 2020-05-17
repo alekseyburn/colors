@@ -1,0 +1,38 @@
+.btn {
+  padding: 1rem;
+
+  font-size: 1rem;
+  color: $alter-text-color;
+
+  background-color: $alter-bg-color;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+
+  fill: white;
+
+  &--adjust,
+  &--lock {
+    background-color: transparent;
+  }
+
+  &--close {
+    border-radius: 0 1rem 0 1rem;
+    font-weight: bold;
+    padding: 0.5rem;
+
+    &:hover,
+    &:focus {
+      outline: none;
+      background-color: #d74646;
+    }
+  }
+
+  &--palette {
+    border-radius: 0;
+  }
+}
+
+.btn svg {
+  display: block;
+}

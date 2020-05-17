@@ -1,0 +1,40 @@
+// В этом файле должны быть стили для БЭМ-блока save, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.save {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+
+  background-color: $main-bg-color;
+  border-radius: 2rem;
+}
+
+.save__close-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.save__name {
+  padding: 2rem;
+
+  font-size: 2rem;
+}
+
+.save__btn {
+  padding: 1rem 3rem;
+
+  border-radius: 10px;
+
+  appearance: none;
+
+  &:hover,
+  &:focus {
+    background-color: #d74646;
+    outline: none;
+  }
+}

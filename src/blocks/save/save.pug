@@ -1,0 +1,29 @@
+//- Все примеси в этом файле должны начинаться c имени блока (save)
+
+mixin save(classes)
+
+  //- Принимает:
+  //-   classes    {string} - список классов
+  //- Вызов:
+        +save('some-class')
+
+  -
+    // список классов
+    let allClasses = '';
+    if(typeof(classes) !== 'undefined' && classes) {
+      for (let item of classes.split(',')) {
+        allClasses = allClasses + item.trim();
+      }
+    }
+
+  div(class=`${allClasses.length > 0 ? `${allClasses} ` : ``}save`)&attributes(attributes)
+    +btn('X', 'save__close-btn')(class='btn--close')
+    h2.save__name Введите имя палитры
+    +field-text({
+      classes: 'save__input',
+      attrs: {
+        name: 'name',
+        'max-length': '35'
+      }
+    })
+    +btn('Сохранить','save__btn')(type='submit')

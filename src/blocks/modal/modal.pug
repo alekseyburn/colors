@@ -1,0 +1,20 @@
+//- Все примеси в этом файле должны начинаться c имени блока (modal)
+
+mixin modal(classes)
+
+  //- Принимает:
+  //-   classes    {string} - список классов
+  //- Вызов:
+        +modal('some-class')
+
+  -
+    // список классов
+    let allClasses = '';
+    if(typeof(classes) !== 'undefined' && classes) {
+      for (let item of classes.split(',')) {
+        allClasses = allClasses + item.trim();
+      }
+    }
+
+  section(class=`${allClasses.length > 0 ? `${allClasses} ` : ``}modal`)&attributes(attributes)
+    block

@@ -1,0 +1,21 @@
+//- Все примеси в этом файле должны начинаться c имени блока (copy)
+
+mixin copy(classes)
+
+  //- Принимает:
+  //-   classes    {string} - список классов
+  //- Вызов:
+        +copy('some-class')
+
+  -
+    // список классов
+    let allClasses = '';
+    if(typeof(classes) !== 'undefined' && classes) {
+      for (let item of classes.split(',')) {
+        allClasses = allClasses + item.trim();
+      }
+    }
+
+  section(class=`${allClasses.length > 0 ? `${allClasses} ` : ``}copy`)&attributes(attributes)
+    h2.copy__title Скопировано в буфер!
+    p &#128077;

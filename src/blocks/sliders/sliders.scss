@@ -1,0 +1,39 @@
+// В этом файле должны быть стили для БЭМ-блока sliders, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.sliders {
+  display: flex;
+  flex-direction: column;
+  background-color: $main-bg-color;
+  padding: 1rem;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(100px);
+  transition: all 0.5s ease-in-out;
+
+  &.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+  }
+}
+
+.sliders__btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.sliders__input {
+  margin-bottom: 1rem;
+  width: 100%;
+  position: relative;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

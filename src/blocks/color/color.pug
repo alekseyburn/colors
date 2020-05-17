@@ -1,0 +1,28 @@
+//- Все примеси в этом файле должны начинаться c имени блока (color)
+
+mixin color(classes)
+
+  //- Принимает:
+  //-   classes    {string} - список классов
+  //- Вызов:
+        +color('some-class')
+
+  -
+    // список классов
+    let allClasses = '';
+    if(typeof(classes) !== 'undefined' && classes) {
+      for (let item of classes.split(',')) {
+        allClasses = allClasses + item.trim();
+      }
+    }
+
+  div(class=`${allClasses.length > 0 ? `${allClasses} ` : ``}color`)&attributes(attributes)
+    h2.color__title Hex
+    .color__controls
+      +btn('', 'color__btn')(class='btn--adjust')
+        svg.color__svg(width='24', height='24')
+          use(xlink:href='img/sprite.svg#icon-adjust')
+      +btn('', 'color__btn')(class='btn--lock')
+        svg.color__svg(width='24', height='24')
+          use(xlink:href='img/sprite.svg#icon-unlock')
+    block

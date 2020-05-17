@@ -1,0 +1,28 @@
+// В этом файле должны быть стили для БЭМ-блока panel, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 20vh;
+}
+
+.panel__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.panel__name {
+  font-size: 1.2rem;
+}
+
+.panel__btn {
+  &:hover,
+  &:focus {
+    background-color: #d74646;
+    outline: none;
+  }
+}

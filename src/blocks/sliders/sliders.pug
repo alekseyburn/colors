@@ -1,0 +1,61 @@
+//- Все примеси в этом файле должны начинаться c имени блока (sliders)
+
+mixin sliders(classes, id)
+
+  //- Принимает:
+  //-   classes    {string} - список классов
+  //-   id    {string} - идентификатор
+  //- Вызов:
+        +sliders('some-class')
+
+  -
+    // список классов
+    let allClasses = '';
+    if(typeof(classes) !== 'undefined' && classes) {
+      for (let item of classes.split(',')) {
+        allClasses = allClasses + item.trim();
+      }
+    }
+
+  div(class=`${allClasses.length > 0 ? `${allClasses} ` : ``}sliders`)&attributes(attributes)
+    +btn('X', 'sliders__btn')(class='btn--close')
+    +field-range({
+      label: 'Hue',
+      side: 'up',
+      classes: 'sliders__input',
+      mod: 'hue',
+      attrs: {
+
+        min: '0',
+        max: '360',
+        step: '1',
+        name: 'hue',
+        'data-hue': id
+      }
+    })
+    +field-range({
+      label: 'Brightness',
+      side: 'up',
+      classes: 'sliders__input',
+      mod: 'bright',
+      attrs: {
+        min: '0',
+        max: '1',
+        step: '0.01',
+        name: 'brightness',
+        'data-bright': id
+      }
+    })
+    +field-range({
+      label: 'Saturation',
+      side: 'up',
+      classes: 'sliders__input',
+      mod: 'sat',
+      attrs: {
+        min: '0',
+        max: '1',
+        step: '0.01',
+        name: 'saturation',
+        'data-sat': id
+      }
+    })

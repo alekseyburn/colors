@@ -1,0 +1,34 @@
+//- Все примеси в этом файле должны начинаться c имени блока (panel)
+
+mixin panel(classes)
+
+  //- Принимает:
+  //-   classes    {string} - список классов
+  //- Вызов:
+        +panel('some-class')
+
+  -
+    // список классов
+    let allClasses = '';
+    if(typeof(classes) !== 'undefined' && classes) {
+      for (let item of classes.split(',')) {
+        allClasses = allClasses + item.trim();
+      }
+    }
+
+  section(class=`${allClasses.length > 0 ? `${allClasses}` : ``}panel`)&attributes(attributes)
+    .panel__container.panel__container--lib
+      +btn('', 'panel__btn btn--library')
+        svg.color__svg(width='24', height='24')
+          use(xlink:href='img/sprite.svg#icon-palette')
+      p.panel__name Библиотека
+    .panel__container.panel__container--gen
+      +btn('', 'panel__btn btn--generate')
+        svg.color__svg(width='24', height='24')
+          use(xlink:href='img/sprite.svg#icon-generate')
+      p.panel__name Сгенерировать
+    .panel__container.panel__container--save
+      +btn('', 'panel__btn btn--save')
+        svg.color__svg(width='24', height='24')
+          use(xlink:href='img/sprite.svg#icon-save')
+      p.panel__name Сохранить
