@@ -20,9 +20,9 @@ mixin color(classes)
     h2.color__title Hex
     .color__controls
       +btn('', 'color__btn')(class='btn--adjust')
-        svg.color__svg(width='32', height='32')
+        svg.color__svg(width='24', height='24')
           use(xlink:href='img/sprite.svg#icon-adjust')
       +btn('', 'color__btn')(class='btn--lock')
-        svg.color__svg(width='32', height='32')
-          use(xlink:href='img/sprite.svg#icon-lock')
+        svg.color__svg(width='24', height='24')
+          use(xlink:href='img/sprite.svg#icon-unlock')
     block

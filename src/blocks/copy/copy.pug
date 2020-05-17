@@ -16,7 +16,6 @@ mixin copy(classes)
       }
     }
 
-  section(class=`${allClasses.length > 0 ? `${allClasses}` : ``}copy`)&attributes(attributes)
-      .copy__popup
-        h2.copy__title Copied to Clipboard!
-        p &#128077;
+  section(class=`${allClasses.length > 0 ? `${allClasses} ` : ``}copy`)&attributes(attributes)
+    h2.copy__title Скопировано в буфер!
+    p &#128077;

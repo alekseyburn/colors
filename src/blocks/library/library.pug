@@ -16,7 +16,6 @@ mixin library(classes)
       }
     }
 
-  section(class=`${allClasses.length > 0 ? `${allClasses} ` : ``}library`)&attributes(attributes)
-    .library__popup
-      +btn('X', 'library__btn')(class='btn--close')
-      h2.library__title Pick your palette
+  div(class=`${allClasses.length > 0 ? `${allClasses} ` : ``}library`)&attributes(attributes)
+    +btn('X', 'library__btn')(class='btn--close')
+    h2.library__title Выберите палитру

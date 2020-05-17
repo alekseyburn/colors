@@ -3,6 +3,18 @@
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
 .copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
 
-  $block-name:                &; // #{$block-name}__element
+  background-color: $main-bg-color;
+  border-radius: 2rem;
+  padding: 2rem;
+
+  font-size: 2rem;
+}
+
+.copy__title {
+  padding: 2rem;
 }

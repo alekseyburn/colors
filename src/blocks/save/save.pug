@@ -16,15 +16,14 @@ mixin save(classes)
       }
     }
 
-  section(class=`${allClasses.length > 0 ? `${allClasses}` : ``}save`)&attributes(attributes)
-    .save__popup
-      +btn('X', 'save__btn')(class='btn--close')
-      h2.save__name Give a name to your palette
-      +field-text({
-        classes: 'save__input',
-        attrs: {
-          name: 'name',
-          'max-length': '35'
-        }
-      })
-      +btn('Save','save__btn')(type='submit')
+  div(class=`${allClasses.length > 0 ? `${allClasses} ` : ``}save`)&attributes(attributes)
+    +btn('X', 'save__close-btn')(class='btn--close')
+    h2.save__name Введите имя палитры
+    +field-text({
+      classes: 'save__input',
+      attrs: {
+        name: 'name',
+        'max-length': '35'
+      }
+    })
+    +btn('Сохранить','save__btn')(type='submit')

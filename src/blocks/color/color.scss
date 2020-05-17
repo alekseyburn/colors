@@ -3,6 +3,46 @@
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
 .color {
+  position: relative;
 
-  $block-name:                &; // #{$block-name}__element
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  overflow: hidden;
+  box-shadow: 0 10px 10px rgba(black, 0.2), 0 15px 15px rgba(black, 0.15);
+}
+
+.color__title {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.color__controls {
+  display: flex;
+  flex-direction: column;
+}
+
+.color__btn {
+  margin: 1rem;
+  will-change: transform, box-shadow;
+  transition: transform 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
+
+  &:hover,
+  &:focus {
+    outline: none;
+    transform: scale(1.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
+.color__sliders {
+  position: absolute;
+  bottom: 0;
+  width: 80%;
 }

@@ -1,11 +1,11 @@
-//- Все примеси в этом файле должны начинаться c имени блока (colors)
+//- Все примеси в этом файле должны начинаться c имени блока (modal)
 
-mixin colors(classes)
+mixin modal(classes)
 
   //- Принимает:
   //-   classes    {string} - список классов
   //- Вызов:
-        +colors('some-class')
+        +modal('some-class')
 
   -
     // список классов
@@ -16,5 +16,5 @@ mixin colors(classes)
       }
     }
 
-  section(class=`${allClasses.length > 0 ? `${allClasses} ` : ``}colors`)&attributes(attributes)
+  section(class=`${allClasses.length > 0 ? `${allClasses} ` : ``}modal`)&attributes(attributes)
     block

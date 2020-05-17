@@ -3,6 +3,16 @@
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
 .field-range {
+  display: flex;
+  flex-direction: column;
+}
 
-  $block-name:                &; // #{$block-name}__element
+.field-range__name {
+  margin-bottom: 1rem;
+}
+
+.field-range__input {
+  appearance: none;
+  border-radius: 1rem;
+  cursor: pointer;
 }

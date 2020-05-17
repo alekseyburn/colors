@@ -3,6 +3,13 @@
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
 .colors {
+  min-height: 80vh;
+  display: flex;
+  color: $main-text-color;
+  box-shadow: 0 5px 5px rgba(black, 0.1), 0 10px 10px rgba(black, 0.05);
+}
 
-  $block-name:                &; // #{$block-name}__element
+.colors__item {
+  height: 80vh;
+  padding-bottom: 15rem;
 }
